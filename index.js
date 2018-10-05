@@ -7,9 +7,12 @@ if( process.argv.length >= 3 ) {
     configpath = process.argv[2];
 }
 
-config.$load = function() {
+config.$load = function(dirname) {
+    if(!dirname) {
+        dirname = "./";
+    }
     var conf = {};
-    var filepath = path.resolve("./",configpath);
+    var filepath = path.resolve(dirname,configpath);
     try {
         conf = require(filepath);
     }
@@ -24,4 +27,3 @@ config.$load = function() {
     return config;
 }
 
-config.$load();

@@ -3,9 +3,6 @@ var config = {};
 module.exports = config;
 
 var configpath = "config.js";
-if( process.argv.length >= 3 ) {
-    configpath = process.argv[2];
-}
 
 config.$load = function(dirname) {
     if(!dirname) {
